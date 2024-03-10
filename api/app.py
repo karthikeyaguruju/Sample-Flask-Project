@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify,render_template
 
 app = Flask(__name__)
 
@@ -7,6 +7,9 @@ app = Flask(__name__)
 def home():
     return "Hello World !!", 200
 
+@app.route("/about")
+def about():
+    return render_template('about.html')
 
 @app.errorhandler(404)
 def page_not_found(e):
